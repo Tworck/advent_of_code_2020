@@ -12,8 +12,7 @@ for index, entry in enumerate(data):
     for char, string in enumerate(entry):
         entry_list = data[index][char].split(" ")
         for i in entry_list:
-            key = i[0:3]
-            value = i[4::]
+            key,value = i.split(':')
             passports[index][key] = value
 
 sd = pd.DataFrame.from_dict(passports).T
