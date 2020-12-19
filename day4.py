@@ -16,4 +16,10 @@ for index, entry in enumerate(data):
             value = i[4::]
             passports[index][key] = value
 
-sorted_data = pd.DataFrame.from_dict(passports)
+sd = pd.DataFrame.from_dict(passports).T
+
+requirements = ["byr", "iyr", "pid", "eyr", "ecl", "hgt", "hcl"]
+
+sd_req = sd[requirements]
+
+(sd_req.isnull().sum(axis=1) < 1).value_counts()
